@@ -1,0 +1,52 @@
+		TEMA1 SD TERIS OLGA 323CC
+--------------------------------------------------------------------------------
+	In cadrul acestei teme am implementat 4 metode de remediere a 
+problemelor intr-un set de date.
+
+ 1.1 Eliminare de exceptii folosind metode statistice (--e1)
+
+  Se parcurge lista de valori, folosind o fereastra de dimensiune k = 5. Initial
+introduc primele 2 valori din lista in lista rezultat, deoarece nu urmeaza a fi 
+eliminate. Apoi parcurg lista si pentru fiecare valoare din mijlocul ferestrei
+verific daca se incadreaza in intervalul pe care il calculez cu ajutorul functiilor
+ mediaVal(nod* cap, int startPos) si deviatiaStand(nod* cap, int startPost). Ambele 
+primesc lista de valori si o pozitie de start de la care urmeaza sa ia 
+urmatoarele 5 elemente pentru a calcula valorile respective. Daca elementul 
+verificat se incadraza in interval, acesta urmeaza a fi inserat in lista 
+rezultat. Procesul se repeta pana cand se epuizeaza elementele din lista, 
+ultimele 2 fiind adaugate pe acelasi principiu ca si primele.
+
+1.2.1 Filtrare mediana (--e2)
+  
+  Se parcurge lista de valori si pnetru fiecare valoare se creaza o sublista de 5 
+elemente cu ajutorul functiei sublist(nod* cap, int startPos), unde elementele
+sunt sortate crescator , fiind adaugate cu functia sortedInsert. Dupa ce a fost 
+creata lista de elemente, elementul din mijloc urmeaza a fi inserat in lista 
+rezultat. Procesul se repeta pentru toate valorile din lista.
+
+1.2.2 Filtrare folosind media aritmetica (--e3)
+
+  Se parcurge lista de valori si pentru fiecare element se calculeaza media 
+aritmetica cu ajutorul functiei folosite anterios, mediaVal. Aceasta primeste 
+pozitia de start si calculeaza media la urmatoarele 5 elemente din lista. Media 
+este adaugata in lista rezultat. Procesul se repeta pentru toate valorile din lista.
+
+1.3 Uniformizarea frecventei in timp a datelor (--u)
+
+  Se parcurge lista de valori si se calculeaza diferenta intre timestamp-ul a doua
+valori. Daca aceasta nu apartine intervalului [100, 1000] elementul se sterge din 
+lista si este adaugat cu alte valorile medii dinte nodul anterior si cel curent.
+Procesul se repeta pentru toate valorile din lista.
+
+1.4 Completarea datelor (--c)
+
+  Se parcurge lista de valori si se calculeaza diferenta intre timestamp-ul a doua 
+valori, daca acesta e mai mare decat 1000 atunci trebuie generate valori. Pentru 
+aceasta creez 2 liste de 3 elemente (left si right) pe care urmeaza sa le folosesc 
+in calculul valorilor C  (factor_scalare(nod *left, nod *right, int t)),
+ w (w( int i)) si f(calcul_valoare(float c,  nod* left, nod* right)) conform
+formulelor date. Generez valori cu timestamp-ul din 200 in 200 pana cand ajung la 
+valoarea superioara. Elementele generate pe adaug intr-o lista auxiliara si doar 
+dupa ce au fost generate toate pentru cele 2 elemente verificate, atunci se adauga
+in lista de valori (sorted_insert_by_time(nod **cap, int time, float val))si se 
+verifica urmatoarele elemente. 
